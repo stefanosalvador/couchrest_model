@@ -141,6 +141,8 @@ module CouchRest
             limit(0).total_rows
           end
         end
+        
+        alias :size :count
 
         # Check to see if the array of documents is empty. This *will*
         # perform the query and return all documents ready to use, if you don't
