@@ -19,8 +19,8 @@ module CouchRest
       private
 
       def load_config(file)
-        if File.exists?(file)
-          YAML::load(ERB.new(IO.read(file)).result).symbolize_keys
+        if File.exist?(file)
+          YAML::load(ERB.new(IO.read(file)).result, aliases: true).symbolize_keys rescue YAML::load(ERB.new(IO.read(file)).result).symbolize_keys
         else
           { }
         end
